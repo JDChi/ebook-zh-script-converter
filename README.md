@@ -2,7 +2,7 @@
 
 一个在浏览器本地处理 EPUB 的简繁文字转换网站。支持简体与繁体双向转换；默认使用通用简繁规则，也可以选择台湾或香港版本。台湾版本包含惯用词转换；香港版本采用香港字形，地区词汇覆盖有限。转换核心是 `opencc-wasm`，EPUB 打包使用 JSZip。
 
-在线使用：[EPUB 简繁转换器](https://epub-zh-script-converter.jdchi.tech/) · [GitHub 仓库](https://github.com/JDChi/ebook-zh-script-converter)
+在线使用：[EPUB 简繁转换器](https://ebook-zh-script-converter.jdchi.tech/) · [GitHub 仓库](https://github.com/JDChi/ebook-zh-script-converter)
 
 ## 本地运行
 
@@ -31,18 +31,19 @@ npm run dev
 - `src/i18n.ts`：简体和繁体界面文案。
 - `tests/`：转换路线测试和 EPUB 样本。
 - `public/`：隐私政策、404 页面、搜索引擎文件和广告声明。
+- `functions/_middleware.js`：将旧自定义域名的请求永久重定向到新域名。
 
 协作和修改约定见 [AGENTS.md](./AGENTS.md)。
 
 ## 部署
 
-项目部署在 [Cloudflare Pages](https://epub-zh-script-converter.pages.dev/)，自定义域名为 [epub-zh-script-converter.jdchi.tech](https://epub-zh-script-converter.jdchi.tech/)。构建输出目录是仓库根目录的 `dist/`。发布前运行 `npm test` 和 `npm run build`；使用已有 Pages 项目发布：
+项目部署在 [Cloudflare Pages](https://ebook-zh-script-converter.pages.dev/)（项目名 `ebook-zh-script-converter`），自定义域名为 [ebook-zh-script-converter.jdchi.tech](https://ebook-zh-script-converter.jdchi.tech/)。构建输出目录是仓库根目录的 `dist/`。发布前运行 `npm test` 和 `npm run build`；使用已有 Pages 项目发布：
 
 ```sh
-wrangler pages deploy dist --project-name epub-zh-script-converter --branch main
+wrangler pages deploy dist --project-name ebook-zh-script-converter --branch main
 ```
 
-上线后检查首页、`/privacy`、`/robots.txt`、`/sitemap.xml` 和不存在路径的状态码及内容。
+上线后检查首页、`/privacy`、`/robots.txt`、`/sitemap.xml` 和不存在路径的状态码及内容，并确认旧自定义域名返回 301。
 
 ## 处理范围
 
