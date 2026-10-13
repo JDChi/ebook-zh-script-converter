@@ -31,7 +31,6 @@ npm run dev
 - `src/i18n.ts`：简体和繁体界面文案。
 - `tests/`：转换路线测试和 EPUB 样本。
 - `public/`：隐私政策、404 页面、搜索引擎文件和广告声明。
-- `functions/_middleware.js`：将旧自定义域名的请求永久重定向到新域名。
 
 协作和修改约定见 [AGENTS.md](./AGENTS.md)。
 
@@ -43,7 +42,7 @@ npm run dev
 wrangler pages deploy dist --project-name ebook-zh-script-converter --branch main
 ```
 
-上线后检查首页、`/privacy`、`/robots.txt`、`/sitemap.xml` 和不存在路径的状态码及内容，并确认旧自定义域名返回 301。
+上线后检查首页、`/privacy`、`/robots.txt`、`/sitemap.xml` 和不存在路径的状态码及内容。
 
 ## 处理范围
 
