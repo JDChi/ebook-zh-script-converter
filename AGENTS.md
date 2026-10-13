@@ -2,7 +2,7 @@
 
 ## 项目定位
 
-这是一个纯前端 EPUB 简繁转换工具。书籍在浏览器内读取、转换和下载，不应引入上传书籍内容的服务端流程。技术栈是 TypeScript、Vite、`opencc-wasm` 和 JSZip。
+这是一个纯前端 EPUB 简繁转换工具。书籍在浏览器内读取、转换和下载，不应引入上传书籍内容的服务端流程。技术栈是 TypeScript、Vite、`opencc-wasm` 和 JSZip。应用和 npm 命令均位于仓库根目录。
 
 ## 目录与职责
 
@@ -10,7 +10,7 @@
 - `src/epub.ts`：EPUB 读取、结构和大小检查、内容转换及输出检查。
 - `src/converter.ts`：OpenCC 转换路线。通用繁体、台湾和香港路线的词汇行为不同。
 - `src/i18n.ts`：简体和繁体界面文案。
-- `scripts/copy-opencc-assets.mjs`：将 OpenCC 运行资源和许可声明复制到同源静态目录。
+- `scripts/copy-opencc-assets.mjs`：复制 OpenCC 运行资源和许可声明。
 - `tests/`：转换路线测试和 EPUB 样本。
 
 ## 修改约定
@@ -24,4 +24,4 @@
 
 ## 验证
 
-在本目录执行 `npm ci`、`npm test` 和 `npm run build`。涉及实际 EPUB 输出时，再用阅读器抽查章节、目录、图片和转换结果；自动化路线测试不能替代真实书籍检查。
+在仓库根目录执行 `npm ci`、`npm test` 和 `npm run build`。涉及实际 EPUB 输出时，再用阅读器抽查章节、目录、图片和转换结果；自动化路线测试不能替代真实书籍检查。

@@ -103,7 +103,9 @@ async function convertBook() {
 function render() {
   const m = messages(locale);
   document.documentElement.lang = locale;
-  document.title = `${m.name} · EPUB`;
+  document.title = locale === 'zh-CN'
+    ? 'EPUB 简繁转换器｜简体转繁体、繁体转简体 - 书字转换器'
+    : 'EPUB 簡繁轉換器｜簡體轉繁體、繁體轉簡體 - 書字轉換器';
   app.innerHTML = `
     <div class="site-shell">
       <a class="skip-link" href="#tool">${m.upload}</a>
@@ -139,9 +141,18 @@ function render() {
           </div>
         </section>
         <section class="features" aria-label="Features"><article><span class="feature-icon">◇</span><h3>${m.privacy}</h3><p>${m.privacyText}</p></article><article><span class="feature-icon">▤</span><h3>${m.structure}</h3><p>${m.structureText}</p></article></section>
+        <section class="help-content" aria-label="${m.howTitle}">
+          <h2>${m.howTitle}</h2>
+          <ol><li>${m.howStep1}</li><li>${m.howStep2}</li><li>${m.howStep3}</li></ol>
+          <h2>${m.scopeTitle}</h2>
+          <p>${m.scopeText}</p>
+          <h2>${m.faqTitle}</h2>
+          <h3>${m.faqQuestion}</h3>
+          <p>${m.faqAnswer}</p>
+        </section>
         <p class="footnote">${m.note}</p>
       </main>
-      <footer><span>${m.name}</span><a href="/privacy.html">${m.privacyPolicy}</a><span>EPUB · OpenCC WASM</span></footer>
+      <footer><span>${m.name}</span><a href="/privacy">${m.privacyPolicy}</a><span>EPUB · OpenCC WASM</span></footer>
     </div>`;
   $<HTMLSelectElement>('#locale').value = locale;
   $('#file-name').textContent = filename;
